@@ -122,7 +122,6 @@ export default {
 }
 .radio_container {
   @apply flex flex-col items-center px-6 py-4;
-  /* box-sizing: border-box; */
   border: 2px solid #e1e2e7;
   border-radius: 10px;
   transition: box-shadow 0.4s;

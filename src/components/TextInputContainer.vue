@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col justify-between gap-4">
-      <!-- :variables="variables.filter.name" -->
     <InputText
       name="Name"
       id_input="name_search"

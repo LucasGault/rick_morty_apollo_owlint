@@ -31,19 +31,4 @@ export default {
     },
   },
 };
-// const props = defineProps({
-// is: {
-//   type: String,
-//   default: "button",
-// },
-// blue: {
-//   type: Boolean,
-// },
-// red: {
-//   type: Boolean,
-// },
-// green: {
-//   type: Boolean,
-// },
-// });
 </script>

@@ -161,15 +161,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-/* .home_container {
-  max-height: 80vh;
-} */
 .data_container {
   min-width: 60vw;
 }
-/* .list_characters_container {
-  max-height: 100vh;
-} */
 
 @screen md {
   .list_character {
