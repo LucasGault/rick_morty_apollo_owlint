@@ -1,11 +1,13 @@
 <template>
   <main>
     <div
-      class="home_container flex justify-around p-8 my-6 overflow-hidden gap-8"
+      class="home_container flex justify-around p-8 my-6  gap-8"
     >
-      <div class="filter_container space-y-12 bg-white rounded-md p-4 self-start">
-        <TextInputContainer :variables="variables" />
-        <RadioInputContainer :variables="variables" />
+      <div>
+        <div class="filter_container space-y-12 bg-white rounded-md p-4 sticky top-12 ">
+          <TextInputContainer :variables="variables" />
+          <RadioInputContainer :variables="variables" />
+        </div>
       </div>
       <div class="data_container bg-white rounded-md p-4">
         <div
@@ -23,7 +25,7 @@
             :page="variables.page"
             @selectPage="selectPage"
           />
-          <ul class="list_characters_container flex flex-wrap justify-between overflow-y-scroll space-y-4 gap-2 ">
+          <ul class="list_characters_container flex flex-wrap justify-between  space-y-4 gap-2 ">
             <li class="list_character flex items-center justify-between gap-6 py-4 px-2 rounded-xl hover:bg-primary-yellow/50" v-for="character of characters" :key="character.id">
               <img class="w-24 h-24 rounded-full" :src="character.image" alt="" />
               <div class="flex flex-col flex-1">
@@ -161,9 +163,9 @@ export default {
 .data_container {
   min-width: 60vw;
 }
-.list_characters_container {
+/* .list_characters_container {
   max-height: 100vh;
-}
+} */
 
 .list_character {
   min-width: 45%;
