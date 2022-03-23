@@ -1,7 +1,7 @@
 <template>
   <main>
     <div
-      class="home_container flex justify-around p-8 my-6  gap-8"
+      class="home_container flex flex-col md:flex-row p-2 md:p-4 my-6 gap-4"
     >
       <div>
         <div class="filter_container space-y-12 bg-white rounded-md p-4 sticky top-12 ">
@@ -25,7 +25,7 @@
             :page="variables.page"
             @selectPage="selectPage"
           />
-          <ul class="list_characters_container flex flex-wrap justify-between  space-y-4 gap-2 ">
+          <ul class="list_characters_container flex flex-col md:flex-row md:flex-wrap justify-between space-y-4 gap-2 ">
             <li class="list_character flex items-center justify-between gap-6 py-4 px-2 rounded-xl hover:bg-primary-yellow/50" v-for="character of characters" :key="character.id">
               <img class="w-24 h-24 rounded-full" :src="character.image" alt="" />
               <div class="flex flex-col flex-1">
@@ -167,8 +167,11 @@ export default {
   max-height: 100vh;
 } */
 
-.list_character {
-  min-width: 45%;
-  max-width: 45%;
+@screen md {
+  .list_character {
+    min-width: 45%;
+    max-width: 45%;
+  }
+
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="filter flex flex-col justify-between gap-4">
     <div class="w-full">
       <h2 class="text-2xl font-semibold mb-2">Gender :</h2>
-      <div class="flex items-center justify-between max-w-xl gap-2">
+      <div class="flex items-center justify-between max-w-xl gap-2 flex-wrap md:flex-nowrap">
         <InputRadio
           id_input="gender_choice_1"
           name="gender"
@@ -39,7 +39,7 @@
     </div>
     <div class="w-full">
       <h2 class="text-2xl font-semibold mb-2">Status :</h2>
-      <div class="flex items-center justify-between max-w-xl">
+      <div class="flex items-center justify-between max-w-xl flex-wrap md:flex-nowrap">
         <InputRadio
           id_input="status_choice_1"
           name="status"
