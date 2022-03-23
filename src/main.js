@@ -1,5 +1,5 @@
 import { createApp, provide, h } from 'vue'
-import { createPinia } from 'pinia'
+// import { createPinia } from 'pinia'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 
@@ -30,7 +30,7 @@ const app = createApp({
 })
 
 // app.use(apolloProvider)
-app.use(createPinia())
+// app.use(createPinia())
 app.use(router)
 
 app.mount('#app')

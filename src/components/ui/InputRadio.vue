@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cursor-pointer">
     <input
       type="radio"
       :id="id_input"
@@ -7,7 +7,7 @@
       :value="value"
       @change="$emit('update:value', $event.target)"
     />
-    <label class="radio_container" :for="id_input">
+    <label class="radio_container cursor-pointer" :for="id_input">
       <slot></slot>
       <div class="radio_details">
         <span>{{ value || "Reset" }}</span>
@@ -28,4 +28,3 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped></style>

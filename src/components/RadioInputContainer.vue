@@ -28,6 +28,7 @@
           <UnknownIcon />
         </InputRadio>
         <InputRadio
+          @mouseleave="resetRadio()"
           id_input="gender_choice_4"
           name="gender"
           value=""
@@ -65,6 +66,8 @@
           <QuestionIcon/>
         </InputRadio>
         <InputRadio
+          @mouseleave="resetRadio()"
+
           id_input="status_choice_4"
           name="status"
           value=""
@@ -89,6 +92,12 @@ import QuestionIcon from "./icons/QuestionIcon.vue";
 export default {
   props: {
     variables: Object,
+  },
+  methods: {
+    resetRadio() {
+      document.querySelector("#gender_choice_4").checked = false
+      document.querySelector("#status_choice_4").checked = false
+    }
   },
   name: "RadioInputContainer",
   components: {

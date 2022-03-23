@@ -1,10 +1,8 @@
 <template>
   <main>
-    <div
-      class="home_container flex flex-col md:flex-row p-2 md:p-4 my-6 gap-4"
-    >
+    <div class="home_container flex flex-col md:flex-row p-2 md:p-4 my-6 gap-4">
       <div>
-        <div class="filter_container space-y-12 bg-white rounded-md p-4 sticky top-12 ">
+        <div class="filter_container space-y-12 bg-white rounded-md p-4 sticky top-12">
           <TextInputContainer :variables="variables" />
           <RadioInputContainer :variables="variables" />
         </div>
@@ -25,40 +23,49 @@
             :page="variables.page"
             @selectPage="selectPage"
           />
-          <ul class="list_characters_container flex flex-col md:flex-row md:flex-wrap justify-between space-y-4 gap-2 ">
-            <li class="list_character flex items-center justify-between gap-6 py-4 px-2 rounded-xl hover:bg-primary-yellow/50" v-for="character of characters" :key="character.id">
+          <div
+            class="list_characters_container flex flex-col md:flex-row md:flex-wrap justify-between space-y-4 gap-2"
+          >
+            <RouterLink :to="{ name: 'Character', params: { id: character.id} }"
+              class="list_character flex items-center justify-between gap-6 py-4 px-2 rounded-xl hover:bg-primary-yellow/50"
+              v-for="character of characters"
+              :key="character.id"
+            >
+              
               <img class="w-24 h-24 rounded-full" :src="character.image" alt="" />
               <div class="flex flex-col flex-1">
-                <p class="text-2xl font-medium"> {{ character.name }} </p>
-                <p v-if="character.type" class="text-lg font-normal"> Type: {{ character.type }} </p>
-                <p class="text-lg font-normal">Species : {{ character.species }} </p>
+                <p class="text-2xl font-medium">{{ character.name }}</p>
+                <p v-if="character.type" class="text-lg font-normal">
+                  Type: {{ character.type }}
+                </p>
+                <p class="text-lg font-normal">Species : {{ character.species }}</p>
               </div>
-              <div class="pr-4 ">
+              <div class="pr-4 space-y-2">
                 <div>
-                  <div v-if="character.gender =='Male'">
-                    <MaleIcon width="25" height="25"/>
+                  <div v-if="character.gender == 'Male'">
+                    <MaleIcon width="25" height="25" />
                   </div>
-                  <div v-else-if="character.gender =='Female'">
-                    <FemaleIcon width="25" height="25"/>
+                  <div v-else-if="character.gender == 'Female'">
+                    <FemaleIcon width="25" height="25" />
                   </div>
                   <div v-else>
-                    <UnknownIcon width="25" height="25"/>
+                    <UnknownIcon width="25" height="25" />
                   </div>
                 </div>
                 <div class="">
-                  <div v-if="character.status =='Alive'">
-                    <AliveIcon  width="25" height="25"/>
+                  <div v-if="character.status == 'Alive'">
+                    <AliveIcon width="25" height="25" />
                   </div>
-                  <div v-else-if="character.status =='Dead'">
-                    <DeadIcon width="25" height="25"/>
+                  <div v-else-if="character.status == 'Dead'">
+                    <DeadIcon width="25" height="25" />
                   </div>
                   <div v-else>
-                    <QuestionIcon width="25" height="25"/>
+                    <QuestionIcon width="25" height="25" />
                   </div>
                 </div>
               </div>
-            </li>
-          </ul>
+            </RouterLink>
+          </div>
           <Pagination
             v-if="info"
             :info="info"
@@ -72,6 +79,7 @@
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
 import { useQuery, useResult } from "@vue/apollo-composable";
 import gql from "graphql-tag";
 import { reactive } from "vue";
@@ -126,11 +134,6 @@ export default {
     }
     const characters = useResult(result, null, (data) => data.characters.results);
     const info = useResult(result, null, (data) => data.characters.info);
-    // watch(result, (value) => {
-    //   console.log(value);
-    // });
-    console.log(characters);
-    // console.log(characters);
     return {
       characters,
       loading,
@@ -151,8 +154,9 @@ export default {
     UnknownIcon,
     AliveIcon,
     DeadIcon,
-    QuestionIcon
-},
+    QuestionIcon,
+    RouterLink,
+  },
 };
 </script>
 
@@ -172,6 +176,5 @@ export default {
     min-width: 45%;
     max-width: 45%;
   }
-
 }
 </style>
