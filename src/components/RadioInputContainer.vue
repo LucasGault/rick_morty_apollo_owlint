@@ -121,18 +121,20 @@ export default {
   height: 0;
 }
 .radio_container {
-  @apply flex flex-col items-center px-6 py-4;
+  @apply flex flex-col items-center px-6 py-4 bg-transparent;
   border: 2px solid #e1e2e7;
   border-radius: 10px;
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, background-color 0.4s;
 }
 
 .filter .radio_container:hover {
+  /* @apply bg-primary-yellow; */
   box-shadow: 0px 3px 5px 0px #e8e8e8;
-}
+  transition: ease-in-out 0.3s;
 
+}
 .filter input[type="radio"]:checked + .radio_container {
   @apply bg-primary-yellow;
-  transition: ease-in 0.3s;
+  transition: ease-in-out 0.3s;
 }
 </style>
