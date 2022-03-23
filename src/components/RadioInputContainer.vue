@@ -22,7 +22,7 @@
         <InputRadio
           id_input="gender_choice_3"
           name="gender"
-          value="Unknown"
+          value="unknown"
           @update:value="(newValue) => (variables.filter.gender = newValue.value)"
         >
           <UnknownIcon />
