@@ -29,7 +29,9 @@
           Created : {{ new Date(character.created).toLocaleDateString() }}
         </p> -->
       </div>
-      <div class="flex flex-col md:flex-row justify-between gap-8 bg-white px-8 py-8 rounded-lg">
+      <div
+        class="flex flex-col md:flex-row justify-between gap-8 bg-white px-8 py-8 rounded-lg"
+      >
         <div class="space-y-4">
           <h3 class="font-semibold text-4xl">Location</h3>
           <div class="space-y-2">
@@ -133,7 +135,6 @@ export default {
       variables.page = page;
     }
     const character = useResult(result, null, (data) => data.character);
-    console.log(character);
     return {
       character,
       result,
