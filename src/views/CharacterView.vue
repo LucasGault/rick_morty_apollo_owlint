@@ -9,7 +9,6 @@
     </div>
     <div v-else-if="error">
       Error: {{ error.message }}
-      {{ result }}
     </div>
     <div v-else-if="character" class="space-y-8 mx-auto pt-8 md:max-w-5xl">
       <div class="flex gap-4">

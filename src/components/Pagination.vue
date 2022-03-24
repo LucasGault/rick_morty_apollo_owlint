@@ -4,17 +4,15 @@
       {{ 1 }}
     </Button>
     <div
-      v-if="page > 2"
-      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80 cursor-pointer"
+      v-if="page > 3"
+      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80"
     >
       ...
     </div>
     <Button blue v-if="info.prev" @click="$emit('selectPage', info.prev)">
       {{ info.prev }}
     </Button>
-    <div
-      class="font-bold text-gray-dark py-2 px-4 rounded-lg hover:bg-opacity-80 cursor-pointer"
-    >
+    <div class="font-bold text-gray-dark py-2 px-4 rounded-lg hover:bg-opacity-80">
       {{ page }}
     </div>
     <Button
@@ -26,7 +24,7 @@
     </Button>
     <div
       v-if="page < info.pages - 2"
-      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80 cursor-pointer"
+      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80"
     >
       ...
     </div>
