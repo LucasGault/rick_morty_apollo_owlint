@@ -11,8 +11,8 @@
       :key="data.id"
     >
       <RouterLink
-        :to="{ name: 'Character', params: { id: data.id } }"
-        class="w-32 h-48 p-2 rounded-xl transition-colors  hover:bg-primary-yellow/80"
+        :to="{ name: page_name, params: { id: data.id } }"
+        class="w-40 h-56 p-2 rounded-xl transition-colors hover:bg-primary-yellow/80"
       >
         <img class="rounded-md" :src="data.image" alt="" />
         <p class="text-lg font-medium text-center">{{ data.name }}</p>
@@ -34,6 +34,7 @@ import ArrowRight from "./icons/ArrowRight.vue";
 
 const props = defineProps({
   dataArray: Array,
+  page_name: String,
 });
 
 const startSlice = ref(0);
@@ -42,11 +43,8 @@ const carousselArray = ref(props.dataArray.slice(startSlice.value, endSlice.valu
 const seeMore = (nextSlice) => {
   startSlice.value += nextSlice;
   endSlice.value += nextSlice;
-  console.log(endSlice.value);
-  console.log(props.dataArray.length);
-  var newArr
+  var newArr;
   if (endSlice.value >= props.dataArray.length) {
-    console.log("hh");
     newArr = props.dataArray.slice(-3);
   } else {
     newArr = props.dataArray.slice(startSlice.value, endSlice.value);

@@ -41,28 +41,8 @@
                 <p class="text-lg font-normal">Species : {{ character.species }}</p>
               </div>
               <div class="pr-4 space-y-2">
-                <div>
-                  <div v-if="character.gender == 'Male'">
-                    <MaleIcon :width="25" :height="25" />
-                  </div>
-                  <div v-else-if="character.gender == 'Female'">
-                    <FemaleIcon :width="25" :height="25" />
-                  </div>
-                  <div v-else>
-                    <UnknownIcon :width="25" :height="25" />
-                  </div>
-                </div>
-                <div class="">
-                  <div v-if="character.status == 'Alive'">
-                    <AliveIcon :width="25" :height="25" />
-                  </div>
-                  <div v-else-if="character.status == 'Dead'">
-                    <DeadIcon :width="25" :height="25" />
-                  </div>
-                  <div v-else>
-                    <QuestionIcon :width="25" :height="25" />
-                  </div>
-                </div>
+                <GenderIcon :gender="character.gender" />
+                <StatusIcon :status="character.status" />
               </div>
             </RouterLink>
           </div>
@@ -94,6 +74,8 @@ import UnknownIcon from "../components/icons/UnknownIcon.vue";
 import AliveIcon from "../components/icons/AliveIcon.vue";
 import DeadIcon from "../components/icons/DeadIcon.vue";
 import QuestionIcon from "../components/icons/QuestionIcon.vue";
+import GenderIcon from "../components/GenderIcon.vue";
+import StatusIcon from "../components/StatusIcon.vue";
 
 export default {
   setup() {
@@ -156,6 +138,8 @@ export default {
     DeadIcon,
     QuestionIcon,
     RouterLink,
+    GenderIcon,
+    StatusIcon,
   },
 };
 </script>
