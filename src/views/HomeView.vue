@@ -26,12 +26,12 @@
           <div
             class="list_characters_container flex flex-col md:flex-row md:flex-wrap justify-between space-y-4 gap-2"
           >
-            <RouterLink :to="{ name: 'Character', params: { id: character.id} }"
+            <RouterLink
+              :to="{ name: 'Character', params: { id: character.id } }"
               class="list_character flex items-center justify-between gap-6 py-4 px-2 rounded-xl hover:bg-primary-yellow/50"
               v-for="character of characters"
               :key="character.id"
             >
-              
               <img class="w-24 h-24 rounded-full" :src="character.image" alt="" />
               <div class="flex flex-col flex-1">
                 <p class="text-2xl font-medium">{{ character.name }}</p>
@@ -43,24 +43,24 @@
               <div class="pr-4 space-y-2">
                 <div>
                   <div v-if="character.gender == 'Male'">
-                    <MaleIcon width="25" height="25" />
+                    <MaleIcon :width="25" :height="25" />
                   </div>
                   <div v-else-if="character.gender == 'Female'">
-                    <FemaleIcon width="25" height="25" />
+                    <FemaleIcon :width="25" :height="25" />
                   </div>
                   <div v-else>
-                    <UnknownIcon width="25" height="25" />
+                    <UnknownIcon :width="25" :height="25" />
                   </div>
                 </div>
                 <div class="">
                   <div v-if="character.status == 'Alive'">
-                    <AliveIcon width="25" height="25" />
+                    <AliveIcon :width="25" :height="25" />
                   </div>
                   <div v-else-if="character.status == 'Dead'">
-                    <DeadIcon width="25" height="25" />
+                    <DeadIcon :width="25" :height="25" />
                   </div>
                   <div v-else>
-                    <QuestionIcon width="25" height="25" />
+                    <QuestionIcon :width="25" :height="25" />
                   </div>
                 </div>
               </div>

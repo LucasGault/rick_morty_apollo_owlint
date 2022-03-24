@@ -20,21 +20,17 @@
   </svg>
 </template>
 
-
 <script>
 export default {
-
-  props : {
+  props: {
     width: {
-      type: String,
-      default: "63"
+      type: Number,
+      default: 63,
     },
     height: {
-      type: String,
-      default: "50"
+      type: Number,
+      default: 50,
     },
-  }
-
-}
-
+  },
+};
 </script>
