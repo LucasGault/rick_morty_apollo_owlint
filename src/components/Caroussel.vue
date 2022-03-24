@@ -5,18 +5,17 @@
         <ArrowLeft :width="60" :height="60" />
       </button>
     </div>
-    <div
-      class="card_container flex justify-between"
-      v-for="data in carousselArray"
-      :key="data.id"
-    >
-      <RouterLink
-        :to="{ name: page_name, params: { id: data.id } }"
-        class="w-40 h-56 p-2 rounded-xl transition-colors hover:bg-primary-yellow/80"
-      >
-        <img class="rounded-md" :src="data.image" alt="" />
-        <p class="text-lg font-medium text-center">{{ data.name }}</p>
-      </RouterLink>
+    <div class="card_container flex flex-col md:flex-row justify-between">
+      
+        <RouterLink
+        v-for="data in carousselArray"
+        :key="data.id"
+          :to="{ name: page_name, params: { id: data.id } }"
+          class="w-24 md:w-40 md:h-56 p-2 rounded-xl transition-colors hover:bg-primary-yellow/80"
+        >
+          <img class="rounded-md" :src="data.image" alt="" />
+          <p class="text-xs md:text-lg font-medium text-center">{{ data.name }}</p>
+        </RouterLink>
     </div>
     <div class="w-16">
       <button v-show="endSlice <= dataArray.length" class="" @click="seeMore(3)">

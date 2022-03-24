@@ -1,8 +1,14 @@
 <template>
-  <div class="flex justify-center gap-2 my-8">
+  <div class="flex justify-center gap-1 md:gap-2 my-8">
     <Button blue v-if="info.prev != 1 && page != 1" @click="$emit('selectPage', 1)">
       {{ 1 }}
     </Button>
+    <div
+      v-if="page > 2"
+      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80 cursor-pointer"
+    >
+      ...
+    </div>
     <Button blue v-if="info.prev" @click="$emit('selectPage', info.prev)">
       {{ info.prev }}
     </Button>
@@ -18,6 +24,12 @@
     >
       {{ info.next }}
     </Button>
+    <div
+      v-if="page < info.pages - 2"
+      class="font-bold text-gray-dark py-2 px-2 md:px-4 rounded-lg hover:bg-opacity-80 cursor-pointer"
+    >
+      ...
+    </div>
     <Button blue v-if="info.pages != page" @click="$emit('selectPage', info.pages)">
       {{ info.pages }}
     </Button>
