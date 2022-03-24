@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-8 mx-4">
+  <div class="character_container flex mt-8 mx-4">
     <div
       v-if="loading"
-      class="bg-primary-blue flex text-white w-max items-center rounded-md py-2 px-4 text-xl mx-auto my-8"
+      class="bg-primary-blue self-center flex text-white w-max items-center rounded-md py-12 px-14 text-5xl font-black mx-auto my-8"
     >
       <LoadingIcon />
       Loading...
@@ -56,20 +56,10 @@
               Dimension: {{ character.location.dimension }}
             </p>
           </div>
+          <h3 class="font-medium text-3xl">Residents :</h3>
           <Caroussel :dataArray="character.location.residents" />
-          <!-- <div class="grid grid-cols-3 gap-2">
-            <div
-              class="flex flex-col justify-center items-center"
-              v-for="resident in character.location.residents"
-              :key="resident.id"
-            >
-              <img class="w-24 h-24 rounded-full" :src="resident.image" alt="" />
-              <p class="font-medium text-sm">{{ resident.name }}</p>
-            </div>
-          </div> -->
         </div>
       </div>
-      {{ character.location }}
     </div>
   </div>
 </template>
@@ -77,7 +67,7 @@
 <script>
 import { useQuery, useResult } from "@vue/apollo-composable";
 import gql from "graphql-tag";
-import { reactive } from "vue";
+import { reactive, watch } from "vue";
 import { useRoute } from "vue-router";
 import LoadingIcon from "../components/icons/LoadingIcon.vue";
 import MaleIcon from "../components/icons/MaleIcon.vue";
@@ -93,6 +83,13 @@ export default {
     const route = useRoute();
     const variables = reactive({
       characterId: route.params.id.toString(),
+    });
+    watch(route, (currentValue, oldValue) => {
+      console.log(currentValue);
+      if (currentValue.name == "Character") {
+        variables.characterId = currentValue.params.id.toString();
+      }
+
     });
     const { result, loading, error } = useQuery(
       gql`
@@ -162,4 +159,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.character_container {
+  min-height: 80vh;
+}
+</style>
