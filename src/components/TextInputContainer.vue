@@ -4,12 +4,24 @@
       name="Name"
       id_input="name_search"
       :value="variables.filter.name"
-      @update:value="(newValue) => (variables.filter.name = newValue.value)"
+      @update:value="
+        (newValue) => {
+          variables.filter.name = newValue.value;
+          variables.page = 1;
+        }
+      "
     />
-    <InputText name="Species"
+    <InputText
+      name="Species"
       id_input="species_search"
       :value="variables.filter.species"
-      @update:value="(newValue) => (variables.filter.species = newValue.value)"/>
+      @update:value="
+        (newValue) => {
+          variables.page = 1;
+          variables.filter.species = newValue.value;
+        }
+      "
+    />
   </div>
 </template>
 
